@@ -1,5 +1,7 @@
 require_relative "boot"
+require 'uri'
 
+URI.instance_variable_set('@schemes', {})
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"

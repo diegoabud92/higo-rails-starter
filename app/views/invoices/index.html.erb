@@ -1,0 +1,50 @@
+<h1>Invoices:</h1>
+
+<%= form_with(url: invoices_path, method: :get, local: true) do %>
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <%= label_tag :min_amount, 'Minimum Amount' %>
+      <%= text_field_tag :min_amount, params[:min_amount], class: 'form-control' %>
+    </div>
+    <div class="col-md-4">
+      <%= label_tag :max_amount, 'Maximum Amount' %>
+      <%= text_field_tag :max_amount, params[:max_amount], class: 'form-control' %>
+    </div>
+    <div class="col-md-4 d-flex align-items-end">
+      <%= submit_tag 'Filter', class: 'btn btn-primary' %>
+      <%= link_to 'Clear', invoices_path, class: 'btn btn-secondary ml-2' %>
+    </div>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>UUID</th>
+      <th>Amount</th>
+      <th>Provider Name</th>
+      <th>Emission Date</th>
+      <th>Expire Date</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.uuid %></td>
+        <td><%= number_to_currency(invoice.amount) %></td>
+        <td><%= link_to invoice.provider.name, provider_invoices_invoices_path(invoice.provider.name) %></td>
+        <td><%= invoice.emitted_at %></td>
+        <td><%= invoice.expires_at %></td>
+        <td>
+          <%= link_to 'Show', invoice, class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Edit', edit_invoice_path(invoice), class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @invoices %>

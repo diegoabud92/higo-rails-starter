@@ -1,0 +1,8 @@
+<h2>Upload Invoices</h2>
+<%= form_with(url: upload_invoices_invoices_path, local: true, multipart: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :files, "Choose XML files" %>
+    <%= form.file_field :files, multiple: true, class: 'form-control' %>
+  </div>
+  <%= form.submit "Upload Invoices", class: 'btn btn-primary' %>
+<% end %>

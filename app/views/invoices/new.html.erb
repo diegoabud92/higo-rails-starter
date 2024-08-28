@@ -1,0 +1,30 @@
+<%= form_with(model: @invoice, local: true, class: "needs-validation") do |form| %>
+  <div class="mb-3">
+    <%= form.label :uuid, class: "form-label" %>
+    <%= form.text_field :uuid, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :amount, class: "form-label" %>
+    <%= form.number_field :amount, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :provider_name, class: "form-label" %>
+    <%= form.text_field :provider_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :issue_date, class: "form-label" %>
+    <%= form.date_select :issue_date, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :due_date, class: "form-label" %>
+    <%= form.date_select :due_date, class: "form-control", required: true %>
+  </div>
+
+  <div class="d-grid gap-2">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

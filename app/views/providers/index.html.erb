@@ -1,0 +1,27 @@
+<h1>Providers:</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>UUID</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.name %></td>
+        <td><%= provider.uuid %></td>
+        <td>
+          <%= link_to 'Show', provider, class: "btn btn-secondary btn-sm" %>
+          <%# <%= link_to 'Edit', edit_provider_path(provider), class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @providers %>

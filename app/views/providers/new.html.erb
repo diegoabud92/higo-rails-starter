@@ -1,0 +1,24 @@
+<h1>New Provider</h1>
+
+<%= form_with(model: @provider, local: true, class: "needs-validation") do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.text_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone_number, class: "form-label" %>
+    <%= form.telephone_field :phone_number, class: "form-control", required: true %>
+  </div>
+
+  <div class="d-grid gap-2">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', providers_path %>

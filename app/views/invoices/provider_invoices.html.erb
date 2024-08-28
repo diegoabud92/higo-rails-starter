@@ -1,0 +1,25 @@
+<h1>Invoices for <%= @provider.name %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>UUID</th>
+      <th>Amount</th>
+      <th>Emission Date</th>
+      <th>Expire Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.uuid %></td>
+        <td><%= number_to_currency(invoice.amount) %></td>
+        <td><%= invoice.emitted_at %></td>
+        <td><%= invoice.expires_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><b>Total Due: <%= @total_due %></b></p>

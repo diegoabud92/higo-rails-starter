@@ -1,0 +1,23 @@
+<h1>Invoice: <%= @invoice.id %></h1>
+
+<p>
+  <strong>UUID:</strong>
+  <%= @invoice.uuid %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @invoice.amount %>
+</p>
+
+<p>
+  <strong>Emission date:</strong>
+  <%= @invoice.emitted_at %>
+</p>
+
+<p>
+  <strong>Expiry date:</strong>
+  <%= @invoice.expires_at %>
+</p>
+
+<%= link_to 'Back', invoices_path %>
