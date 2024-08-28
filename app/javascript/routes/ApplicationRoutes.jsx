@@ -5,10 +5,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import { useApplicationProvider } from '../providers/ApplicationProvider'
+import { useApplicationProvider } from '../providers/ApplicationProvider.jsx'
 
-import Home from 'pages/Home'
-import About from 'pages/About'
+import Home from 'pages/Home.jsx'
+import About from 'pages/About.jsx'
 
 const ApplicationRoutes = props => (
   <Switch>

@@ -38,9 +38,9 @@
         <td><%= invoice.emitted_at %></td>
         <td><%= invoice.expires_at %></td>
         <td>
-          <%= link_to 'Show', invoice, class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Show', invoice_path(invoice), class: "btn btn-secondary btn-sm" %>
           <%= link_to 'Edit', edit_invoice_path(invoice), class: "btn btn-secondary btn-sm" %>
-          <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+          <%= link_to 'Destroy', invoice_path(invoice), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
         </td>
       </tr>
     <% end %>

@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Edit Invoice</h2>
+
+  <%= form_with(model: @invoice, local: true, class: 'needs-validation') do |form| %>
+    <% if @invoice.errors.any? %>
+      <div class="alert alert-danger">
+        <h4 class="alert-heading"><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h4>
+        <ul>
+          <% @invoice.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :uuid, class: 'form-label' %>
+      <%= form.text_field :uuid, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :amount_cents, 'Amount (in cents)', class: 'form-label' %>
+      <%= form.number_field :amount_cents, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :currency_code, class: 'form-label' %>
+      <%= form.text_field :currency_code, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :emitted_at, 'Emitted At', class: 'form-label' %>
+      <%= form.date_select :emitted_at, { start_year: Date.today.year - 10, end_year: Date.today.year + 1 }, { class: 'form-control' } %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :expires_at, 'Expires At', class: 'form-label' %>
+      <%= form.date_select :expires_at, { start_year: Date.today.year - 10, end_year: Date.today.year + 1 }, { class: 'form-control' } %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :provider_id, 'Provider', class: 'form-label' %>
+      <%= form.collection_select :provider_id, Provider.all, :id, :name, { prompt: 'Select a provider' }, { class: 'form-select' } %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Update Invoice", class: 'btn btn-primary' %>
+      <%= link_to 'Back', invoices_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>

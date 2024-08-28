@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ApplicationLayout from '../layouts/ApplicationLayout'
+import ApplicationLayout from '../layouts/ApplicationLayout.jsx'
 
 const Home = () => (
   <ApplicationLayout>

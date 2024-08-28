@@ -1,20 +1,21 @@
-<h1>Invoices for <%= @provider.name %></h1>
+<h2>Invoices for <%= @provider.name %></h2>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>UUID</th>
       <th>Amount</th>
-      <th>Emission Date</th>
-      <th>Expire Date</th>
+      <th>Currency</th>
+      <th>Emitted At</th>
+      <th>Expires At</th>
     </tr>
   </thead>
-
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
         <td><%= invoice.uuid %></td>
-        <td><%= number_to_currency(invoice.amount) %></td>
+        <td><%= number_to_currency(invoice.amount_cents / 100.0) %></td>
+        <td><%= invoice.currency_code %></td>
         <td><%= invoice.emitted_at %></td>
         <td><%= invoice.expires_at %></td>
       </tr>
@@ -22,4 +23,6 @@
   </tbody>
 </table>
 
-<p><b>Total Due: <%= @total_due %></b></p>
+<p>Total Due: <%= number_to_currency(@total_due / 100.0) %></p>
+
+<%= paginate @invoices %>

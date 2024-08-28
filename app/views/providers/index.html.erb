@@ -15,9 +15,9 @@
         <td><%= provider.name %></td>
         <td><%= provider.uuid %></td>
         <td>
-          <%= link_to 'Show', provider, class: "btn btn-secondary btn-sm" %>
-          <%# <%= link_to 'Edit', edit_provider_path(provider), class: "btn btn-secondary btn-sm" %>
-          <%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+          <%= link_to 'Show', provider_path(provider), class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Edit', edit_provider_path(provider), class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Destroy', provider_path(provider), method: :delete, data: { confirm: 'Are you sure? This will delete all related invoices' }, class: "btn btn-danger btn-sm" %>
         </td>
       </tr>
     <% end %>

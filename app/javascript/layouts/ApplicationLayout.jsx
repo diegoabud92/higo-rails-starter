@@ -16,7 +16,7 @@ import ReactDOM from 'react-dom'
 
 import { Link } from 'react-router-dom'
 
-import { useApplicationProvider } from '../providers/ApplicationProvider'
+import { useApplicationProvider } from '../providers/ApplicationProvider.jsx'
 
 const ApplicationLayout = ({ children }) => {
   const { currentUser } = useApplicationProvider()

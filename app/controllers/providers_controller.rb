@@ -1,4 +1,6 @@
 class ProvidersController < ApplicationController
+  before_action :set_provider, only: %i[show edit update destroy]
+
   def new
     @provider = Provider.new
   end
@@ -20,7 +22,27 @@ class ProvidersController < ApplicationController
     @provider = Provider.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+    if @provider.update(provider_params)
+      redirect_to @provider, notice: 'Provider was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @provider.destroy
+    redirect_to providers_url, notice: 'Provider was successfully destroyed.'
+  end
+
   private
+
+  def set_provider
+    @provider = Provider.find(params[:id])
+  end
 
   def provider_params
     params.require(:provider).permit(:name, :email, :phone_number)

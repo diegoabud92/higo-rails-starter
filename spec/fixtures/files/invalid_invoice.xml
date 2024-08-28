@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice>
+  <!-- Falta el campo UUID -->
+  <AmountCents>10000</AmountCents>
+  <CurrencyCode>USD</CurrencyCode>
+  <EmittedAt>2024-08-01</EmittedAt>
+  <!-- Falta el campo ExpiresAt -->
+  <Provider>
+    <Name>Provider ABC</Name>
+    <!-- Falta el campo UUID del proveedor -->
+  </Provider>
+</Invoice>

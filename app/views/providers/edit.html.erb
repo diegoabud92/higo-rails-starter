@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Edit Provider</h2>
+
+  <%= form_with(model: @provider, local: true, class: 'needs-validation') do |form| %>
+    <% if @provider.errors.any? %>
+      <div class="alert alert-danger">
+        <h4 class="alert-heading"><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h4>
+        <ul>
+          <% @provider.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control', required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :uuid, class: 'form-label' %>
+      <%= form.text_field :uuid, class: 'form-control', required: true %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Update Provider", class: 'btn btn-primary' %>
+      <%= link_to 'Back', providers_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>

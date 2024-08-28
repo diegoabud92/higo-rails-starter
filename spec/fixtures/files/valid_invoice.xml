@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice>
+  <UUID>123e4567-e89b-12d3-a456-426614174000</UUID>
+  <AmountCents>10000</AmountCents>
+  <CurrencyCode>USD</CurrencyCode>
+  <EmittedAt>2024-08-01</EmittedAt>
+  <ExpiresAt>2024-09-01</ExpiresAt>
+  <Provider>
+    <Name>Provider ABC</Name>
+    <UUID>provider-123</UUID>
+  </Provider>
+</Invoice>

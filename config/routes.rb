@@ -19,9 +19,13 @@ Rails.application.routes.draw do
       post 'upload_invoices', to: 'invoices#upload', as: 'upload_invoices'
       get 'provider_invoices/:provider_name', to: 'invoices#provider_invoices', as: 'provider_invoices'
     end
+
+    member do
+      delete 'destroy', to: 'invoices#destroy'
+    end
   end
 
-  resources :providers, only: [:new, :create, :show, :index]
+  resources :providers
 
   # Uncomment to use React
   # root to: 'react_app#index'

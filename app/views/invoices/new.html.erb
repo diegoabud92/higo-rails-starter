@@ -1,30 +1,49 @@
-<%= form_with(model: @invoice, local: true, class: "needs-validation") do |form| %>
-  <div class="mb-3">
-    <%= form.label :uuid, class: "form-label" %>
-    <%= form.text_field :uuid, class: "form-control", required: true %>
+<h1>New Invoice</h1>
+
+<%= form_with(model: @invoice, local: true) do |form| %>
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+        <% @invoice.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uuid %>
+    <%= form.text_field :uuid %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :amount, class: "form-label" %>
-    <%= form.number_field :amount, class: "form-control", required: true %>
+  <div class="field">
+    <%= form.label :amount_cents %>
+    <%= form.number_field :amount_cents %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :provider_name, class: "form-label" %>
-    <%= form.text_field :provider_name, class: "form-control", required: true %>
+  <div class="field">
+    <%= form.label :currency_code %>
+    <%= form.text_field :currency_code %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :issue_date, class: "form-label" %>
-    <%= form.date_select :issue_date, class: "form-control", required: true %>
+  <div class="field">
+    <%= form.label :emitted_at %>
+    <%= form.date_select :emitted_at %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :due_date, class: "form-label" %>
-    <%= form.date_select :due_date, class: "form-control", required: true %>
+  <div class="field">
+    <%= form.label :expires_at %>
+    <%= form.date_select :expires_at %>
   </div>
 
-  <div class="d-grid gap-2">
-    <%= form.submit class: "btn btn-primary" %>
+  <div class="field">
+    <%= form.label :provider_id %>
+    <%= form.collection_select :provider_id, Provider.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
   </div>
 <% end %>

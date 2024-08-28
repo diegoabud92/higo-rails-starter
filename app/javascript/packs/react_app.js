@@ -16,8 +16,8 @@ import ReactDOM from 'react-dom'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import ApplicationProvider from '../providers/ApplicationProvider'
-import ApplicationRoutes from '../routes/ApplicationRoutes'
+import ApplicationProvider from '../providers/ApplicationProvider.jsx'
+import ApplicationRoutes from '../routes/ApplicationRoutes.jsx'
 
 const ReactApp = props => (
   <ApplicationProvider>
