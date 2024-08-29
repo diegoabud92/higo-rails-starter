@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: higo_rails_starter_production
-  username: higo_rails_starter
-  password: <%= ENV['HIGO_RAILS_STARTER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
