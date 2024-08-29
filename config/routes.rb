@@ -5,12 +5,10 @@ Rails.application.routes.draw do
     root to: 'invoices#index', as: :authenticated_root
   end
 
-  unauthenticated do
-    root to: 'devise/sessions#new', as: :unauthenticated_root
-  end
-
-  %w[about].each do |page|
-    get page, to: 'pages#show'
+  devise_scope :user do
+    unauthenticated do
+      root to: 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
 
   resources :invoices do
@@ -26,8 +24,4 @@ Rails.application.routes.draw do
   end
 
   resources :providers
-
-  # Uncomment to use React
-  # root to: 'react_app#index'
-  # get '*path', to: 'react_app#index'
 end
