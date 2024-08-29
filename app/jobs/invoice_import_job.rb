@@ -1,5 +1,5 @@
-class InvoiceImportJob
-  include Sidekiq::Worker
+class InvoiceImportJob < ApplicationJob
+  queue_as :default
 
   def perform(file_paths)
     file_paths.each do |file_path|
